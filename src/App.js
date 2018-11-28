@@ -3,6 +3,7 @@ import { HashRouter, Switch, Route } from 'react-router-dom'
 import Market from './components/Market'
 import Vehicles from './components/Vehicles'
 import './App.css';
+import MarketDetails from './components/MarketDetails'
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
       <HashRouter>
         <Switch>
           <Route path='/' component={Market} exact />
+          <Route path='/market/details/:id' component={MarketDetails} />
           <Route path='/vehicles' component={Vehicles} />
         </Switch>
       </HashRouter>

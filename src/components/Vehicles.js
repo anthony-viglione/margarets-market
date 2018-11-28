@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Nav from './Nav'
+import { Link } from 'react-router-dom';
+
+/*
+step 1:
+create vehicles details route
+    1a.
+     VehicleDetails component
+    1b. 
+     path = '/vehicles/details/:id'
+
+step 2:
+componentDidMount of VehicleDetails component
+      2a.
+      axios GET url + id (this.props.match.params.id)
+      2b.
+      setState with response
+      2c.
+      display detail about car
+*/
 
 export default class Vehicles extends Component {
   constructor(props) {
@@ -20,7 +39,9 @@ export default class Vehicles extends Component {
       return <div>
         <p>Make: {car.make}</p>
         <p>Model: {car.model}</p>
-        <button>Details for {car.make} {car.model}</button>
+        <Link to={`/vehicles/details/${car.id}`}>
+          <button>Details for {car.make} {car.model}</button>
+        </Link>
         <hr />
       </div>
     })
